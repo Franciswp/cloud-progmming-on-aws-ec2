@@ -4,8 +4,9 @@
 
 ## SNS - Topic
 resource "aws_sns_topic" "myasg_sns_topic" {
-  name = "myasg-sns-topic-${random_pet.this.id}"
-}
+  #name = "myasg-sns-topic-${random_pet.this.id}"
+  name = "${local.name}-${random_pet.this.id}"
+} 
 
 ## SNS - Subscription
 resource "aws_sns_topic_subscription" "myasg_sns_topic_subscription" {
@@ -25,7 +26,3 @@ resource "aws_autoscaling_notification" "myasg_notifications" {
   ]
   topic_arn = aws_sns_topic.myasg_sns_topic.arn 
 }
-
-# Launch Configuration ASG vs Lauch Template ASG
-# ASG LC: module.autoscaling.autoscaling_group_id
-# ASG LT: aws_autoscaling_group.my_asg.id

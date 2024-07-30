@@ -2,7 +2,7 @@
 module "alb" {
   source  = "terraform-aws-modules/alb/aws"
   #version = "5.16.0"
-  version = "9.4.0"
+  version = "9.2.0"
 
   name = "${local.name}-alb"
   load_balancer_type = "application"
@@ -95,9 +95,6 @@ module "alb" {
       }# End of Health Check Block
       tags = local.common_tags # Target Group Tags 
     } # END of Target Group-1: mytg1
-
   } # END OF target_groups
   tags = local.common_tags # ALB Tags
 }# End of alb module
-
-

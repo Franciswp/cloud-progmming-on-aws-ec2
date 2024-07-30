@@ -1,15 +1,15 @@
 # Autoscaling Group Resource
 resource "aws_autoscaling_group" "my_asg" {
-  name_prefix = "myasg-"
-  desired_capacity = 2
+  #name_prefix = "myasg-"
+  name_prefix = "${local.name}-"  
   max_size = 10
   min_size = 2
+  #min_size = 4 
+  desired_capacity = 2    
+  #desired_capacity = 4   
   vpc_zone_identifier = module.vpc.private_subnets
-  
-  # Change-1: ALB Module upgraded to 9.4.0 
-  #target_group_arns = module.alb.target_group_arns 
-  target_group_arns = [module.alb.target_groups["mytg1"].arn] # UPDATED 
-  
+  #target_group_arns = module.alb.target_group_arns
+  target_group_arns = [module.alb.target_groups["mytg1"].arn] # UPDATED NOV2023  
   health_check_type = "EC2"
   #health_check_grace_period = 300 # default is 300 seconds
   launch_template {

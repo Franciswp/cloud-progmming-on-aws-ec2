@@ -9,7 +9,8 @@ module "acm" {
   zone_id      = data.aws_route53_zone.mydomain.zone_id 
 
   subject_alternative_names = [
-    "*.devopsincloud.com"
+    #"*.devopsincloud.com"
+    var.dns_name 
   ]
   tags = local.common_tags
   # Validation Method
