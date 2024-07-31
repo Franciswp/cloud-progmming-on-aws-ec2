@@ -15,9 +15,9 @@ module "private_sg" {
   ingress_cidr_blocks = [module.vpc.vpc_cidr_block]
   # Egress Rule - all-all open
   egress_rules = ["all-all"]
-  tags = local.common_tags
-  /* tags = {
+  #tags = local.common_tags
+  tags = {
     Name = "lesson_SG_01"
-  } */
+  } 
 }
 
