@@ -15,4 +15,7 @@ module "public_bastion_sg" {
   # Egress Rule - all-all open
   egress_rules = ["all-all"]
   tags = local.common_tags
+  /* tags = {
+    Name = "lesson_SG_01"
+  } */
 }

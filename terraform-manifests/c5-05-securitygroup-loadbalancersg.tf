@@ -15,6 +15,9 @@ module "loadbalancer_sg" {
   # Egress Rule - all-all open
   egress_rules = ["all-all"]
   tags = local.common_tags
+  /* tags = {
+    Name = "lesson_SG_01"
+  } */
 
   # Open to CIDRs blocks (rule or from_port+to_port+protocol+description)
   ingress_with_cidr_blocks = [
